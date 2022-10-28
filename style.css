@@ -1,0 +1,20 @@
+.gradient-custom {
+    background: #f6d365;
+    background: -webkit-linear-gradient(to right bottom, #F1B038, #BE946B);
+    background: linear-gradient(to right bottom, #F1B038 , #BE946B)
+}
+
+#pp-img {
+    min-width: 100px; 
+    border-radius: 10px;
+}
+
+.pdg {
+    padding: calc(50% - 200px) 0;
+}
+
+@media only screen and (max-width: 768px) {
+    #pp-img {
+        min-width: 200px;
+    }
+}
