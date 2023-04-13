@@ -1,0 +1,148 @@
+@use '../scss/global' as g;
+
+.about {
+  height: 100vh;
+  position: relative;
+  width: 100vw;
+  padding: 130px
+  clamp(2px, 0.5vw, 8px)
+  20px
+  clamp(2px, 0.5vw, 8px);
+  z-index: 3;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  & .about-card {
+    color: white;
+    overflow: auto;
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    height: fit-content;
+    padding: 30px
+    clamp(30px, 2vw, 40px)
+  ;
+    // card
+    border-radius: 12px;
+    @include g.root-filter;
+  }
+  & p {
+    text-align: justify;
+  }
+  & .about-content-item {
+    margin: 20px 0;
+  }
+  & h1, h2, h3, h4, h5 {
+    text-transform: uppercase;
+  }
+}
+
+$card-border-radius: 10px;
+.skill-card {
+  font-size: clamp(0.8em, 2vw, 1rem);
+  & small {
+    font-size: clamp(0.7rem, 2vw, 0.7rem);
+  }
+  font-family: 'Lexend', sans-serif;
+  display:flex;
+  flex-flow: row wrap;
+  justify-content:space-between;
+  align-items:center;
+  padding:
+  clamp(0.67rem, 2vw, 1rem)
+    clamp(0.1rem, 3vw, 1.5rem);
+    ;
+  //height:105px;
+  border-radius: $card-border-radius;
+  //margin:15px 0
+  @include g.button-filter;
+  column-gap: 20px;
+  row-gap: 5px;
+
+  & > *:nth-child(2) {
+    margin-right: 0;
+    flex-basis: 100%;
+  }
+}
+
+
+.python-card {
+  background-image: linear-gradient(45deg, #4B8BBE, #4B8BBE 50%, #9d8324 50%, #ad8b10);;
+  border-radius: $card-border-radius;
+}
+
+.node-card {
+  border-radius: $card-border-radius;
+  background-image: linear-gradient(45deg, #333, #68A063 25%, #5FA8D3 50%, #0072C6 75%, #007ACC);
+}
+
+.react-card {
+  background-image: linear-gradient(to right, #61DAFB, #20232A);
+  border-radius: $card-border-radius;
+}
+
+.docker-card {
+  background-image: linear-gradient(45deg, #0db7ed, #19647e);
+  border-radius: $card-border-radius;
+}
+
+.cloudflare-card {
+  background-image: linear-gradient(to right, #f38020, #ffcd11);
+  border-radius: $card-border-radius;
+}
+
+.ubuntu-card {
+  background-image: linear-gradient(45deg, #E95420, #772953);
+  border-radius: $card-border-radius;
+}
+
+.digitalocean-card {
+  background-image: linear-gradient(45deg, #0080FF, #00C6FF);
+  border-radius: $card-border-radius;
+}
+
+.web-card {
+    background-image: linear-gradient(45deg, #F7DF1E, #E01A4F);
+  border-radius: $card-border-radius;
+}
+
+.bootstrap-card {
+  background-image: linear-gradient(45deg, #7952B3, #FF00CC);
+  border-radius: $card-border-radius;
+}
+.git-card {
+    background-image: linear-gradient(45deg, #F05032, #E1BEE7);
+    border-radius: $card-border-radius;
+}
+
+.sql-card {
+    background-image: linear-gradient(45deg, #003B57, #0077B6);
+    border-radius: $card-border-radius;
+}
+
+.overlay {
+  width: fit-content;
+  transition: opacity 0.3s ease-in-out;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+
+
+.subtitle {
+  font-family: 'Lexend', sans-serif;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    margin: 0;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.skill-icon-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+  gap: 20px;
+}

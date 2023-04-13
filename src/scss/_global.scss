@@ -1,0 +1,54 @@
+@mixin bg-pos-animation {
+  animation: bg-pos-animation 4s ease infinite;
+  @at-root {
+    @keyframes bg-pos-animation {
+      0% {
+        background-position: 0 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0 50%;
+      }
+    }
+  }
+}
+
+@mixin background-img {
+  background-color: #5F78AC;
+  //background-image: linear-gradient(45deg, #ff5eb8 0%, #b76cff 50%, #185783 100%);
+  //background-size: 125% 125%;
+  //background-image: url("https://images.unsplash.com/photo-1579546929662-711aa81148cf");
+  //  background-position: center;
+  //  background-repeat: no-repeat;
+  //  background-attachment: fixed;
+  min-height: 100vh;
+  //@include bg-pos-animation;
+}
+
+@mixin button-filter {
+  background: rgba( 0, 0, 0, 0.05 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  cursor: default;
+  //backdrop-filter: blur( 16.5px );
+  //-webkit-backdrop-filter: blur( 16.5px );
+  //border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+@mixin root-filter {
+  backdrop-filter: blur(5px) saturate(180%);
+  -webkit-backdrop-filter: blur(5px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  //border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: #fff;
+  margin: clamp(10px, 5vh, 30px) 0;
+}

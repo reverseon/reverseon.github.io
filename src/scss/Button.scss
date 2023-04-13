@@ -1,0 +1,31 @@
+@use '../scss/global' as g;
+.btn-overlay {
+  width: fit-content;
+  transition: opacity 0.3s ease-in-out;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  &:hover {
+    opacity: 0.5;
+    color: white;
+  }
+}
+
+.btn-inside {
+  @include g.button-filter;
+    font-family: 'Lexend', sans-serif;
+  text-align: justify;
+    display:flex;
+    flex-flow: row wrap;
+    justify-content:space-between;
+    align-items:center;
+    padding: 1rem 1.5rem;
+  cursor:pointer;
+    //height:105px;
+    //margin:15px 0
+    column-gap: 20px;
+    row-gap: 5px;
+    color: white;
+    & > *:nth-child(2) {
+      margin-right: 0;
+      flex-basis: 100%;
+    }
+}
