@@ -100,7 +100,7 @@ const About: React.FC<
                     </div>
                     <div className={"divider"} />
                     <small className={"subtitle"}>
-                        By the way, this website was built with React using Glassmorphism principle. The background 3D model was made using Spline.
+                        By the way, this website was built with <a href={"https://react.dev"}>React</a> using Glassmorphism principle. The background 3D model was made using <a href={"https://spline.design"}>Spline</a>.
                     </small>
                     <Button backgroundImage={"linear-gradient(45deg, #00d9a2, #0078a8)"} text={"Check out my other project!"}
                             radius={"10px"}
