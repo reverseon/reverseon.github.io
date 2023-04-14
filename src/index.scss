@@ -6,8 +6,8 @@
 body {
     @include g.background-img;
     font-family: 'Lexend', sans-serif;
-    overflow: hidden;
     -webkit-font-smoothing: antialiased;
+    //overflow: hidden;
     -moz-osx-font-smoothing: grayscale;
 }
 

@@ -1,14 +1,13 @@
 @use '../scss/global' as g;
 
 .about {
-  height: 100vh;
+  //height: 100vh;
+  overflow: auto;
   position: relative;
   width: 100vw;
-  padding: 130px
-  clamp(2px, 0.5vw, 8px)
-  20px
-  clamp(2px, 0.5vw, 8px);
   z-index: 3;
+  margin-top: 100px;
+  padding: 10px 1vw 20px 1vw;
   font-size: clamp(1rem, 2vw, 1.25rem);
   display: flex;
     flex-direction: column;
@@ -16,13 +15,11 @@
     align-items: center;
   & .about-card {
     color: white;
-    overflow: auto;
     width: calc(100% - 40px);
     max-width: 1200px;
     height: fit-content;
     padding: 30px
-    clamp(30px, 2vw, 40px)
-  ;
+    clamp(30px, 2vw, 40px);
     // card
     border-radius: 12px;
     @include g.root-filter;

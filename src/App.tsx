@@ -6,13 +6,14 @@ import Spline from "@splinetool/react-spline";
 import About from "./components/About";
 import Project from "./components/Project";
 import Contact from "./components/Contact";
+import {useNavigate} from "react-router-dom";
 
 const App:
     React.FC<{
         uri: string;
     }> =
     ({uri}) => {
-
+    const navigate = useNavigate();
     const [activeNav, setActiveNav] = React.useState(0)
     const [displayBools, setDisplayBools] = React.useState([true, false, false, false])
     const [isOpens, setIsOpens] = React.useState([true, false, false, false])
@@ -48,8 +49,7 @@ const App:
     useEffect(() => {
         const word = uri.split("/")[1].toLowerCase()
         if (uri.split("/")[2]) {
-            // redirect to home
-            window.location.href = "https://www.naj.one"
+            setActiveNav(0)
         }
         switch (word) {
             case "":
@@ -61,23 +61,26 @@ const App:
                 setActiveNav(1)
                 setDisplayBools([false, true, false, false])
                 setIsOpens([false, true, false, false])
-                animateToDefault()
+                // animateToDefault()
                 break;
             case "project":
                 setActiveNav(2)
                 setDisplayBools([false, false, true, false])
                 setIsOpens([false, false, true, false])
-                animateToProject()
+                // animateToProject()
                 break;
             case "contact":
                 setActiveNav(3)
                 setDisplayBools([false, false, false, true])
                 setIsOpens([false, false, false, true])
-                animateToContact()
+                // animateToContact()
                 break;
             default:
                 // redirect to home
-                window.location.href = "https://www.naj.one"
+                setActiveNav(0)
+                setDisplayBools([true, false, false, false])
+                setIsOpens([true, false, false, false])
+                // window.location.href = "https://www.naj.one"
         }
     }, [uri, allLoaded])
     const lerp = (a: number, b: number, t: number) => {
@@ -110,17 +113,6 @@ const App:
             || slab3_loc === undefined
         ) {
             console.log("Error: Could not find all objects")
-            // console.log(
-            //     cubeGroup_loc,
-            //     cube1_loc,
-            //     cube2_loc,
-            //     cube3_loc,
-            //     cube4_loc,
-            //     slab1_loc,
-            //     slab2_loc,
-            //     slab3_loc,
-            // )
-            // console.log(spline)
             return
         }
         const makeRefPos = (ref: any, obj: any) => {
@@ -130,27 +122,7 @@ const App:
                 z: obj.position.z,
             }
         }
-        // setDefaultPos(cubeGroup_loc, cubeGroupDefaultPos)
-        // setDefaultPos(cube1_loc, cube1DefaultPos)
-        // setDefaultPos(cube2_loc, cube2DefaultPos)
-        // setDefaultPos(cube3_loc, cube3DefaultPos)
-        // setDefaultPos(cube4_loc, cube4DefaultPos)
-        // setDefaultPos(slab1_loc, slab1DefaultPos)
-        // setDefaultPos(slab2_loc, slab2DefaultPos)
-        // setDefaultPos(slab3_loc, slab3DefaultPos)
-        // setDefaultPos({
-        //     x: cubeGroup_loc.position.x,
-        //     y: cubeGroup_loc.position.y - 210,
-        //     z: cubeGroup_loc.position.z - 445,
-        // }, cubeGroupIntroPos)
-        // setCubeGroup(cubeGroup_loc)
-        // setCube1(cube1_loc)
-        // setCube2(cube2_loc)
-        // setCube3(cube3_loc)
-        // setCube4(cube4_loc)
-        // setSlab1(slab1_loc)
-        // setSlab2(slab2_loc)
-        // setSlab3(slab3_loc)
+
         makeRefPos(cubeGroupDefaultPos, cubeGroup_loc)
         makeRefPos(cube1DefaultPos, cube1_loc)
         makeRefPos(cube2DefaultPos, cube2_loc)
@@ -306,17 +278,6 @@ const App:
         if (!allLoaded) {
             return
         }
-        // animate(
-        //     cubeGroup, cubeGroupIntroPos.current,
-        //     cube1, cube1DefaultPos.current,
-        //     cube2, cube2DefaultPos.current,
-        //     cube3, cube3DefaultPos.current,
-        //     cube4, cube4DefaultPos.current,
-        //     slab1, slab1DefaultPos.current,
-        //     slab2, slab2DefaultPos.current,
-        //     slab3, slab3DefaultPos.current,
-        //     120
-        // )
         cubeGroup.position.y -= 210
         cubeGroup.position.z -= 445
     }, [
@@ -386,13 +347,17 @@ const App:
         if (activeNav === 0) {
             // animate to intro
             animateToIntro()
+            navigate("/")
         } else if (activeNav === 2) {
-            animateToProject()
+            // animateToProject()
+            navigate("/projects")
         } else if (activeNav === 3) {
-            animateToContact()
+            // animateToContact()
+            navigate("/contact")
         } else {
             // animate to default
-            animateToDefault()
+            // animateToDefault()
+            navigate("/about")
         }
 
         sleep(1000).then(() => {
@@ -421,9 +386,8 @@ const App:
       />
         <Spline
         style={{
-            width: "100%",
-            height: "100vh",
-            position: "absolute",
+            minHeight: "100vh",
+            position: "fixed",
             top: 0,
             left: 0,
             zIndex: 0,
