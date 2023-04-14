@@ -63,7 +63,7 @@ const App:
                 setIsOpens([false, true, false, false])
                 // animateToDefault()
                 break;
-            case "project":
+            case "projects":
                 setActiveNav(2)
                 setDisplayBools([false, false, true, false])
                 setIsOpens([false, false, true, false])
