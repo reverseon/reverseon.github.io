@@ -530,6 +530,7 @@ a {
   padding: 2em;
   background-color: #373B4C;
   position: relative;
+  max-width: 100%;
 }
 
 .project-card > .image-container {
@@ -546,14 +547,15 @@ a {
 .project-card > h1 {
   font-family: Lexend, sans-serif;
   margin: 0;
-  max-width: 50%;
-  font-size: 2em;
+  max-width: 70%;
+  overflow-wrap: break-word;
 }
 
 .project-card > h3 {
   font-family: Poppins, sans-serif;
   margin: 0;
   margin-top: 50px;
+  overflow-wrap: anywhere;
 }
 
 .project-card > h5 {
